@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: '선생님 월페이퍼',
-        short_name: '월페이퍼',
+        name: '플랜스쿨',
+        short_name: '플랜스쿨',
         description: '선생님을 위한 모바일 대시보드',
         theme_color: '#4A4A4A',
         background_color: '#eeeeee',

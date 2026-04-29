@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <div>
-      <PageHeader title={`${name} 님`} subtitle={dateStr} />
+      <PageHeader title={`${name} 선생님`} subtitle={dateStr} />
       <div className="px-5 pb-6 flex flex-col gap-3">
         <HomeSchedule />
         <HomeTodo />
