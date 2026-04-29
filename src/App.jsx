@@ -4,9 +4,10 @@ import TabLayout from './components/TabLayout'
 import SignIn from './pages/SignIn'
 import Home from './pages/Home'
 import Timetable from './pages/Timetable'
-import Todo from './pages/Todo'
+import Messages from './pages/Messages'
 import Meals from './pages/Meals'
 import My from './pages/My'
+import Settings from './pages/Settings'
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth()
@@ -36,9 +37,11 @@ export default function App() {
         >
           <Route index element={<Home />} />
           <Route path="timetable" element={<Timetable />} />
-          <Route path="todo" element={<Todo />} />
+          <Route path="messages" element={<Messages />} />
+          <Route path="messages/:partnerId" element={<Messages />} />
           <Route path="meals" element={<Meals />} />
           <Route path="my" element={<My />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

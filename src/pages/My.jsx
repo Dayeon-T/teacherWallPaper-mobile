@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router'
 import { useAuth } from '../context/AuthContext'
 import { signOut } from '../api/SignIn'
 import PageHeader from '../components/PageHeader'
+import Avatar from '../components/Avatar'
 
 export default function My() {
+  const navigate = useNavigate()
   const { user } = useAuth()
   const meta = user?.user_metadata || {}
 
@@ -15,21 +18,14 @@ export default function My() {
       <PageHeader title="마이" />
       <div className="px-5 flex flex-col gap-3">
         <div className="bg-widjet rounded-2xl p-5 shadow-sm flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full bg-gray-200 overflow-hidden flex items-center justify-center text-gray-400">
-            {meta.avatar_url ? (
-              <img src={meta.avatar_url} alt="" className="w-full h-full object-cover" />
-            ) : (
-              <span className="text-xl">👤</span>
-            )}
-          </div>
+          <Avatar src={meta.avatar_url} size={56} />
           <div className="min-w-0 flex-1">
             <p className="font-semibold truncate">{meta.name || '선생님'}</p>
             <p className="text-xs text-muted truncate">{user?.email}</p>
           </div>
         </div>
 
-        <MenuItem label="쪽지함" placeholder />
-        <MenuItem label="설정" placeholder />
+        <MenuItem label="설정" onClick={() => navigate('/settings')} />
 
         <button
           onClick={handleLogout}
@@ -42,13 +38,20 @@ export default function My() {
   )
 }
 
-function MenuItem({ label, placeholder }) {
+function MenuItem({ label, onClick, placeholder }) {
   return (
-    <button className="bg-widjet rounded-2xl p-4 shadow-sm flex items-center justify-between text-left">
+    <button
+      onClick={onClick}
+      className="bg-widjet rounded-2xl p-4 shadow-sm flex items-center justify-between text-left"
+    >
       <span className="text-sm font-medium">{label}</span>
-      <span className="text-xs text-muted">
-        {placeholder ? '준비 중' : ''}
-      </span>
+      {placeholder ? (
+        <span className="text-xs text-muted">준비 중</span>
+      ) : (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      )}
     </button>
   )
 }

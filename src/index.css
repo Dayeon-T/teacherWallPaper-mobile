@@ -11,6 +11,25 @@
   --color-primary: #4A4A4A;
 }
 
+:root[data-theme="dark"] {
+  --color-bg: #18181b;
+  --color-widjet: #27272a;
+  --color-text: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-btn: #3f3f46;
+}
+
+/* Tailwind 하드코드 회색 → 다크 모드에서 자연스럽게 보이도록 오버라이드 */
+:root[data-theme="dark"] .bg-white { background-color: #27272a !important; }
+:root[data-theme="dark"] .bg-gray-50 { background-color: #1f1f23 !important; }
+:root[data-theme="dark"] .bg-gray-100 { background-color: #2a2a30 !important; }
+:root[data-theme="dark"] .bg-gray-200 { background-color: #3f3f46 !important; }
+:root[data-theme="dark"] .bg-gray-200\/60 { background-color: rgba(63,63,70,0.6) !important; }
+:root[data-theme="dark"] .text-gray-800 { color: #f4f4f5 !important; }
+:root[data-theme="dark"] .text-gray-300 { color: #52525b !important; }
+:root[data-theme="dark"] .border-gray-100 { border-color: #3f3f46 !important; }
+:root[data-theme="dark"] .border-gray-200 { border-color: #3f3f46 !important; }
+
 html, body, #root {
   width: 100%;
   height: 100%;
@@ -40,4 +59,9 @@ button {
 
 input, textarea {
   -webkit-touch-callout: default;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }

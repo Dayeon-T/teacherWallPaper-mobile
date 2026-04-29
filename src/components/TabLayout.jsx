@@ -3,7 +3,7 @@ import { NavLink, Outlet } from 'react-router'
 const TABS = [
   { to: '/', label: '홈', icon: HomeIcon, end: true },
   { to: '/timetable', label: '시간표', icon: CalendarIcon },
-  { to: '/todo', label: '할 일', icon: CheckIcon },
+  { to: '/messages', label: '쪽지', icon: ChatIcon },
   { to: '/meals', label: '급식', icon: MealIcon },
   { to: '/my', label: '마이', icon: UserIcon },
 ]
@@ -15,7 +15,7 @@ export default function TabLayout() {
         <Outlet />
       </main>
       <nav
-        className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur border-t border-gray-200"
+        className="fixed bottom-0 left-0 right-0 bg-widjet/95 backdrop-blur border-t border-gray-200"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="flex items-stretch justify-around h-[64px]">
@@ -62,11 +62,10 @@ function CalendarIcon({ active }) {
     </svg>
   )
 }
-function CheckIcon({ active }) {
+function ChatIcon({ active }) {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="3" y="3" width="18" height="18" rx="4" />
-      <path d="m8 12 3 3 5-6" stroke={active ? '#fff' : 'currentColor'} />
+      <path d="M21 12a8 8 0 0 1-11.5 7.2L4 21l1.8-5.5A8 8 0 1 1 21 12z" />
     </svg>
   )
 }
