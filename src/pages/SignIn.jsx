@@ -29,7 +29,7 @@ export default function SignIn() {
   return (
     <div className="h-full flex flex-col items-center justify-center px-6">
       <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-center mb-2">선생님 월페이퍼</h1>
+        <h1 className="text-2xl font-bold text-center mb-2">플랜스쿨 모바일</h1>
         <p className="text-sm text-muted text-center mb-8">로그인하고 시작해요</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
